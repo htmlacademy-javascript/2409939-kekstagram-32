@@ -60,15 +60,12 @@ const createIdGenerator = () => {
 };
 const generateRandomId = createIdGenerator();
 
-const CreateMessage = () => Array.from(
-  {length: getRandomInteger(1, 2)},
-  () => getRandomArrayElement(COMMENTS),
-);
+const createMessage = () => Array.from({length: getRandomInteger(1, 2)}, () => getRandomArrayElement(COMMENTS),).join(' ');
 
 const createComment = () => ({
   id: generateRandomId(),
   avatar: `img/avatar-${getRandomInteger(AVATAR_MIN_COUNT, AVATAR_MAX_COUNT)}.svg`,
-  message: CreateMessage(),
+  message: createMessage(),
   name: getRandomArrayElement(NAMES),
 });
 
